@@ -12566,6 +12566,7 @@ $$w_d = argmax_{w \in V \forall w \notin \{w_a, w_b, w_c\}} {cos(vector(w), X)} 
 <pre><code>brew install homebrew/versions/llvm38 --with-rtti
 git clone https://github.com/numba/llvmlite
 cd llvmlite
+pip install enum34
 LLVM_CONFIG=/usr/local/Cellar/llvm38/3.8.0/bin/llvm-config-3.8 python setup.py install
 LLVM_CONFIG=/usr/local/Cellar/llvm38/3.8.0/bin/llvm-config-3.8 pip install numba
 cd ..
@@ -12589,13 +12590,17 @@ rm -rf llvmlite</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>The instructions below assume you have <code>clang</code> and thus <code>llvm</code> on your machine<ul>
-<li>If you don't, see if you can ask a system admin to install it <code>llvm</code>.</li>
+<li><p>The instructions below assume you have <code>clang</code> and thus <code>llvm</code> on your machine</p>
+<ul>
+<li>If you don't, see if you can ask a system admin to install it.</li>
 <li>Alternatively, you can build <code>clang</code> (<code>llvm</code> is a dep of clang) in your local directory<ul>
 <li>This sounds like a horrible experience, though. If you do end up doing such a thing, please let me know!</li>
+<li>I did it, and it wasn't too bad; it just took a while. However, I had issues installing numba in a virtualenv.</li>
 </ul>
 </li>
 </ul>
+</li>
+<li><p>But I did manage to get it working with <code>conda install numba</code> out of the box, so there's that.</p>
 </li>
 </ul>
 
@@ -12610,8 +12615,9 @@ rm -rf llvmlite</code></pre>
 
 <pre><code>git clone https://github.com/numba/llvmlite
 cd llvmlite
-LLVM_CONFIG=&lt;llvm config file&gt; python setup.py install
-LLVM_CONFIG=&lt;llvm config file&gt; pip install numba
+pip install enum34
+LLVM_CONFIG=&lt;llvm-config file&gt; python setup.py install
+LLVM_CONFIG=&lt;llvm-config file&gt; pip install numba
 cd ..
 rm -rf llvmlite</code></pre>
 

@@ -1,5 +1,7 @@
 # Optimizing Scientific Python
 
+slides available live here: http://nelsonliu.me/talks/opt_scipy/Optimizing_Scientific_Python.slides.html
+
 In this tutorial, I'll go over a variety of ways to make your data science /
 machine learning research code fast. I'll start by writing a basic Python
 implementation of cosine similarity between two vectors, demonstrate the
